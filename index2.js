@@ -15,22 +15,22 @@ var indexResource = {nombre:"Máquina Cóndor",descripcion:"Detalle Máquina de 
 var lastGreen;
 
 function showResource() {
-	document.getElementById("titulo").onclick = function () {cleanDivs("categoria");};
-	window.onresize = reSize;
+//	document.getElementById("titulo").onclick = function () {cleanDivs("categoria");};
+//	window.onresize = reSize;
 	var drill = [];
 	var ob = {};
 	ob.data = menuBinding.categoria;
 	ob.status = "categoria";
 	eigenI(generatriz,ob)();
-	backgroundImage(indexResource.url);
+//	backgroundImage(indexResource.url);
 }
 
 function generatriz() {
 	//alert("status : "+this.status);
-	cleanDivs(this.status);
+//	cleanDivs(this.status);
 	rangoCategoria = this.data;
 	//alert(this.name+" "+this.status);
-	var nombre;
+//	var nombre;
 	var drillCopy = 0;
 	id = ++drillCopy;
 	nextLevel = (3+parseInt(drillCopy));
@@ -39,31 +39,32 @@ function generatriz() {
 																		// locative category structure associated functions. (conditionals) * * *
 		
 		if (this.status == "categoria") {
-			divId = document.getElementById("Pagina");
+//			divId = document.getElementById("Pagina");
 			for (item in rangoCategoria) {
-				nombre = document.createElement("div");
-				nombre.setAttribute("class", "categoria");
-				nombre.style.top = ((item*30)+120)+"px";
+//				nombre = document.createElement("div");
+//				nombre.setAttribute("class", "categoria");
+//				nombre.style.top = ((item*30)+120)+"px";
 				step = firstProperty(rangoCategoria[item]);
 				step.status = metaEstructura[step.name].shift();
-				step.arm = metaEstructura[step.name];
-				descripcion = document.createElement("span");
-				descripcion.id = step.status+item;
-				descripcion.onmouseover = function() {thisColor(this);}
-				descripcion.innerHTML = step.name;
-				nombre.appendChild(descripcion);
-				descripcion.onclick = eigenI(generatriz,step);
-				divId.appendChild(nombre);
+				step.branch = metaEstructura[step.name];
+//				descripcion = document.createElement("span");
+//				descripcion.id = step.status+item;
+//				descripcion.onmouseover = function() {thisColor(this);}
+//				descripcion.innerHTML = step.name;
+//				nombre.appendChild(descripcion);
+//				descripcion.onclick = eigenI(generatriz,step);
+                eigenI(generatriz,step);
+//				divId.appendChild(nombre);
 				
 			}
 		}
 		if (this.status == "galleryList")
 			{
-				//rangoCategoria.status = this.arm.shift();
-				//rangoCategoria.arm = this.arm;
-				divId = document.getElementById("galleryList");
-				divId.innerHTML = '';
-				divId.appendChild(showGallery(rangoCategoria));
+				//rangoCategoria.status = this.branch.shift();
+				//rangoCategoria.branch = this.branch;
+//				divId = document.getElementById("galleryList");
+//				divId.innerHTML = '';
+//				divId.appendChild(showGallery(rangoCategoria));
 			}
 		if (this.status == "uniqueResources") {
 			//alert("error : "+this.error);
@@ -129,13 +130,13 @@ showUnique = function () {
 	
 	ob = this;
 
-	dummy = document.createElement("ul");
-	dummy.style.display = "none";
-			close = document.createElement("li");
-			close.setAttribute("onclick","javascript:this.parentNode.parentNode.style.display = 'none';");
-			close.innerHTML = 'X';
-			close.style.fontSize = "36px";
-			dummy.appendChild(close);
+//	dummy = document.createElement("ul");
+//  	dummy.style.display = "none";
+//			close = document.createElement("li");
+//			close.setAttribute("onclick","javascript:this.parentNode.parentNode.style.display = 'none';");
+//			close.innerHTML = 'X';
+//			close.style.fontSize = "36px";
+//			dummy.appendChild(close);
 	
 	if (ob.tipo == "img") {
 		imgContain = document.createElement("li");
